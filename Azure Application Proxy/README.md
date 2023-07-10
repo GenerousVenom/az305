@@ -43,7 +43,7 @@ For more information, click [here](https://learn.microsoft.com/en-us/azure/activ
   - Pre Authentication:
     - Azure Active Directory: Using Domain account to authenticate for login
     - Passthrough: Everyone can login
-  - After successful configuration, the app will be **automatically added to Enterprise applications** by the Name set in *Configura an app*
+  - After successful configuration, the app will be **automatically added to Enterprise applications** by the Name set in *Configure an app* (to use Azure Active Directory for authenticate)
 - **Single sign-on (SSO)**: You can configure this feature by following [this document](https://learn.microsoft.com/vi-vn/azure/active-directory/app-proxy/application-proxy-config-sso-how-to)
   - You *have to join Win hosting Application Proxy Connector to AD domain*. Click [here](https://learn.microsoft.com/vi-vn/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd) to see how it works
   - After receiving UPN and SPN in step (4), Connector pulls those to AD to process further authentication requirements. Free user to authenticate again
