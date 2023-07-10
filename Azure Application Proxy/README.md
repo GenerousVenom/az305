@@ -28,19 +28,22 @@ For more information, click [here](https://learn.microsoft.com/en-us/azure/activ
 - Install **Active Directory Domain Services** on Windowns machine
 - Add Domain server internal IP address to **DNS servers** in VNet to let all VMs in this Vnet can resolve this Domain name
 3. Azure AD Applicaion Proxy connectors
+- Create a new user which roles **Application Administrator** to add the Connector
 - **Public IP address** is obligatory
 - Configure [**TLS requirements**](https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/application-proxy-add-on-premises-application)
-- Download **Connector service agent** from Application proxy in Azure Active Directory to this Window
+- Download **Connector service agent** from Application proxy in Azure Active Directory to this Window, using the created user to register in the Application Proxy
+- Turn off Internet Explorer Enhanced Security Configuration
 4. Join all windows to AD Domain Services and restart all machine
 
 ## Configure on Azure:
-- After install **connector agent**, the machine will be *recogized automatically by Azure*
-- **High Availability** could be achieved by *adding 2 Application Proxy Connector to a single Connector Group*. This HA is an active-passive mode. When a main Proxy Connector down, the connection group automatically switch to the passive Proxy
+- After installing **connector agent**, the machine will be *recogized automatically by Azure* in Application proxy
+- **High Availability** will achieve by *adding 2 Application Proxy Connector to a single Connector Group*. This HA is an active-passive mode. When a main Proxy Connector down, the connection group automatically switch to the passive Proxy
 - In **Configure an app**, you have some essential setup:
   - Internal Url: It has to be a host name, not IP address -> you have to join this machine to AD Domain or create an internal DNS Server
   - Pre Authentication:
     - Azure Active Directory: Using Domain account to authenticate for login
     - Passthrough: Everyone can login
+  - After successful configuration, the app will be **automatically added to Enterprise applications** by the Name set in *Configura an app*
 - **Single sign-on (SSO)**: You can configure this feature by following [this document](https://learn.microsoft.com/vi-vn/azure/active-directory/app-proxy/application-proxy-config-sso-how-to)
   - You *have to join Win hosting Application Proxy Connector to AD domain*. Click [here](https://learn.microsoft.com/vi-vn/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd) to see how it works
   - After receiving UPN and SPN in step (4), Connector pulls those to AD to process further authentication requirements. Free user to authenticate again
