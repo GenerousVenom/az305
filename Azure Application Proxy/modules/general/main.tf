@@ -11,4 +11,5 @@ resource "azurerm_virtual_network" "tf-vnet" {
   depends_on = [ 
     azurerm_resource_group.tf-rsg
   ]
+  dns_servers = ["10.10.10.10"]
 }
