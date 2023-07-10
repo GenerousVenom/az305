@@ -1,4 +1,10 @@
 # AD Sync and File Sync Services
+## Lession learn
+- How to set up AD Connect from on-premises to Azure cloud
+- How to manage synchronization process from on-premises
+- Sync manually, change interval
+- Setup Azure file sync service
+
 ## Architecture 
 <p align="center">
   <img src="./Architecture/Architecture.png" alt="Image Description">
